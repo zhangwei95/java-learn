@@ -1,3 +1,6 @@
+/**
+ * @author zw
+ */
 public class Teacher extends People {
     public Teacher(int age, String name) {
         super(age, name);
@@ -42,15 +45,19 @@ public class Teacher extends People {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (!super.equals(obj))
+        }
+        if (!super.equals(obj)) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()){
             return false;
+        }
         Teacher other = (Teacher) obj;
-        if (x != other.x)
+        if (x != other.x) {
             return false;
+        }
         return true;
     }
 }

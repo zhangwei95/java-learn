@@ -1,5 +1,8 @@
 import java.util.*;
 
+/**
+ * @author zw
+ */
 public class MapT {
 
 
@@ -67,7 +70,8 @@ public class MapT {
          *
          * TreeMap
          */
-        Map<String, People> treeMap = new TreeMap<String, People>();//对象实现Comparable不然
+        //对象实现Comparable
+        Map<String, People> treeMap = new TreeMap<String, People>();
         treeMap.put("zw", p1);
         treeMap.put("zw1", p1);
         //一般用法
@@ -84,7 +88,8 @@ public class MapT {
                     + entry.getValue().getAge());
         }
         //通过Map.entrySet遍历key和value 推荐，大容量时
-        Map<String, People> hashMap = new HashMap<String, People>();//对象实现Comparable不然
+        //对象实现Comparable不然
+        Map<String, People> hashMap = new HashMap<String, People>();
         hashMap.put("zw", p1);
         hashMap.put("zw1", p1);
         System.out.println("通过Map.entrySet遍历key和value 推荐，大容量时");
