@@ -10,6 +10,7 @@ public class Person  {
         LogHandler logHandler=new LogHandler();
         UserManager userManager1 = (UserManager)logHandler.newProxyInstance(new UserMangerImpl());
         userManager1.addUser("1111","张三");
+        assert true:"yyy";
     }
 
 
