@@ -1,5 +1,9 @@
 package create.builder;
 
+/**
+ * 产品
+ * 它是包含多个组成部件的复杂对象，由具体建造者来创建其各个滅部件
+ */
 class Product {
     private String partA;
     private String partB;
