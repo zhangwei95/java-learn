@@ -6,6 +6,9 @@ import create.factorymethod.Product;
 import create.factorymethod.ProductOne;
 import create.factorymethod.ProductTwo;
 
+/**
+ * 具体工厂
+ */
 public class AbstactFactoryImpl implements AbstactFactory {
 
     @Override
