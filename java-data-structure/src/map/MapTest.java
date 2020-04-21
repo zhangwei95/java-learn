@@ -13,7 +13,7 @@ public class MapTest {
 
         /*
          * 链表树化 泊松分布  node数=9时 进行树化
-         * 当put 第8个节点的时候，
+         * 当 put 第8个节点的时候，
          * 取到首节点p，
          * bincount =0 这里 if p.next == null
          * 第一次循环 比较的就是第二个节点
