@@ -15,17 +15,17 @@ public class MapTest {
          * 链表树化 泊松分布  node数=9时 进行树化
          * 当 put 第8个节点的时候，
          * 取到首节点p，
-         * bincount =0 这里 if p.next == null
+         * binCount =0 这里 if p.next == null
          * 第一次循环 比较的就是第二个节点
          * 0 1 2 3 4 5 6
          * 2 3 4 5 6 7 8
-         * 在循环到第7次的时候 bincount=6
-         * p.next ==null bincount = 6
+         * 在循环到第7次的时候 binCount=6
+         * p.next ==null binCount = 6
          * p.next = newNode(hash, key, value, null);
          * if binCount >= TREEIFY_THRESHOLD - 1   6>=7?false->break;
          * put 第九个节点
-         * 在循环到第7次的时候 bincount=7
-         * p.next ==null bincount = 7
+         * 在循环到第7次的时候 binCount=7
+         * p.next ==null binCount = 7
          * p.next = newNode(hash, key, value, null);
          * if binCount >= TREEIFY_THRESHOLD - 1   7>=7?true->treeifyBin(tab, hash);//树化
          *
