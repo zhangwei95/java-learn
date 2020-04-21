@@ -25,15 +25,4 @@ public class GCTest {
         }
 
     }
-
-    static class Obj {
-        String obId;
-        Obj(String obId){
-            this.obId = obId;
-        }
-        @Override
-        public int hashCode(){
-            return 1;
-        }
-    }
 }
