@@ -3,19 +3,23 @@ import java.util.*;
 /**
  * @author zw
  */
+@Deprecated
 public class MapT {
 
 
     public static void main(String[] args) {
+
+
+    /*{
         // TODO Auto-generated method stub
         People p1 = new People(10, "zw");
         People p2 = new People(11, "zw");
         Teacher t1 = new Teacher(21, "lll");
         Teacher t2 = new Teacher(20, "lll");
-        /**
+        *//**
          * Collection下面有2个子类，一个是 List ，一个是 set
          *
-         */
+         *//*
         Collection arry = new ArrayList();
 
         Collection linkedList = new LinkedList();
@@ -24,12 +28,12 @@ public class MapT {
 
         Collection hashset = new HashSet();
         Collection treeSet = new TreeSet();
-        /**
+        *//**
          * List常用子类
          * ArrayList：数组结构，特点：查询、修改速度快；增删稍慢，线程不同步，默认自动扩展0.5倍
          * LinkedList：链表结构，特点：增删速度快；查询、修改稍慢
          * Vector：数组结构，特点：查询、修改速度快，增删稍慢，程序同步，默认自动扩展1倍，可设置
-         */
+         *//*
         ArrayList<Integer> arrayList = new ArrayList<Integer>();
         arrayList.add(1);
         arrayList.add(2);
@@ -46,13 +50,13 @@ public class MapT {
 
         Vector vector1 = new Vector();
         Collections.synchronizedList(arrayList);
-        /**
+        *//**
          * Set常用子类
          * hashSet：哈希表结构，保证唯一性的关键（hashCode  和 equals），
          * 首先对比hashCode，hashCode一样，才比较equals。
          * TreeSet：二叉树 结构，保证唯一性的关键（ Comparator 接口中的 Compare()  
          *  和  Compareble 接口中的 CompareTo()），用来排序 ,需要自己实现Compareble接口
-         */
+         *//*
         Set hash = new HashSet();
         hash.add(t1);
         hash.add(t2);
@@ -64,12 +68,12 @@ public class MapT {
         hhs.add(t2);
         hhs.add(p1);
         System.out.println(hhs.size());
-        /**
+        *//**
          * Map常用子类
          * TreeMap、 HashMap、Hashtable
          *
          * TreeMap
-         */
+         *//*
         //对象实现Comparable
         Map<String, People> treeMap = new TreeMap<String, People>();
         treeMap.put("zw", p1);
@@ -104,5 +108,6 @@ public class MapT {
         }
 
 
+    */
     }
 }
