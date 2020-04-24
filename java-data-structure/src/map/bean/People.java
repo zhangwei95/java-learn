@@ -1,14 +1,27 @@
+package map.bean;
+
 /**
  * @author zw
  */
 public class People implements Work, Comparable {
-    void speak() {
+    public void speak() {
 
     }
+    public People(){
 
+    }
     public People(int age, String name) {
         this.age = age;
         this.name = name;
+    }
+    String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     protected int age;
@@ -63,10 +76,6 @@ public class People implements Work, Comparable {
             return false;
         }
         return true;
-    }
-
-    public static void main(String[] arg) {
-
     }
 
     @Override

@@ -15,6 +15,7 @@ public class Proxy implements Subject{
         realSubject.request();
         doRequest();
     }
+
     public void preRequest(){
         System.out.println("preRequest");
     }

@@ -1,3 +1,5 @@
+package map.bean;
+
 /**
  * @author zw
  */
@@ -6,11 +8,13 @@ public class Teacher extends People {
         super(age, name);
         // TODO Auto-generated constructor stub
     }
+    public Teacher(){
 
+    }
     int x;
 //	public static class MasterTeacher
 //	{
-//		public static void test()
+//		public static void friendly.test()
 //		{
 //			int a=x;
 //			System.out.println(a);
@@ -24,14 +28,15 @@ public class Teacher extends People {
 //		String str2="abc";
 //		System.out.println(str==str2);
 //		System.out.println(str);
-////		MasterTeacher.test();
+////		MasterTeacher.friendly.test();
 //		
 //	}
 
     @Override
     public int compareTo(Object o) {
         // TODO Auto-generated method stub
-//		 return age>((People)o).age?1:age<((People)o).age?-1:0;	
+//		 return age>((friendly.People)o).age?1:age<((friendly.People)o).age?-1:0;
+
         return name.compareTo(((Teacher) o).name);
     }
 

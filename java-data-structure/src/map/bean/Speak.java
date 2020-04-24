@@ -1,3 +1,5 @@
+package map.bean;
+
 /**
  * @author zw
  */
