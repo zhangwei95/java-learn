@@ -1,6 +1,6 @@
 package behavior.memento;
 
-public class MemetoPatternTest {
+public class MementoPatternTest {
     public static void main(String[] args) {
         Originator or=new Originator();
         Caretaker cr=new Caretaker();
@@ -11,5 +11,6 @@ public class MemetoPatternTest {
         System.out.println("新的状态:"+or.getState());
         or.restoreMemento(cr.getMemento()); //恢复状态
         System.out.println("恢复状态:"+or.getState());
+
     }
 }
