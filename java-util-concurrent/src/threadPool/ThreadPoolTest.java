@@ -5,6 +5,7 @@ import java.util.concurrent.*;
 /**
  * 线程池使用
  * @author zhangwei
+ * -Xms60m -Xmx60m -XX:+PrintCommandLineFlags -XX:+PrintGCDetails
  */
 public class ThreadPoolTest {
 
