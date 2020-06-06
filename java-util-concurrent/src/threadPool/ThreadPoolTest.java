@@ -32,19 +32,30 @@ public class ThreadPoolTest {
         ExecutorService executor = new ThreadPoolExecutor(10,50,
                 60L, TimeUnit.SECONDS,new LinkedBlockingQueue<>(1000));
         ;
-        ThreadPoolTest.multiThreadExecutorRun(executor);
+        ThreadPoolTest.multiThreadExecutorRun(fixedThreadPool);
+
+        System.out.println("Main Exit");
+        System.exit(0);
     }
 
-    public static void multiThreadExecutorRun(ExecutorService executor){
-        for (int i=1;i<1000000;i++){
-            executor.execute(()->{
+    public static void multiThreadExecutorRun(ExecutorService executor) {
+        CountDownLatch latch = new CountDownLatch(20);
+        for (int i = 0; i < 20; i++) {
+            executor.execute(() -> {
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(1000);
+                    System.out.println(Thread.currentThread().getName() + " thread run");
                 } catch (InterruptedException e) {
 
+                } finally {
+                    latch.countDown();
                 }
-                System.out.println(Thread.currentThread().getName() + " thread run");
             });
+        }
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+
         }
     }
 }
