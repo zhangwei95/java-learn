@@ -2,9 +2,12 @@ package jmm;
 
 import org.openjdk.jol.info.ClassLayout;
 
+
 /**
  * 通过JOL分析java对象  64bits
  * 需要依赖 org.openjdk.jol这个包
+ *
+ * -XX:-UseCompressedOops 关闭指针压缩  默认开启
  */
 public class ObjectSize {
     static Object object ;
@@ -132,54 +135,59 @@ public class ObjectSize {
      * @param args
      * @throws InterruptedException
      */
-    public static void main(String[] args) throws InterruptedException {
-        object = new Object();
-        System.out.println("befor lock");//无锁01
-        System.out.println(ClassLayout.parseInstance(object).toPrintable());
-
-
-        Thread t1 = new Thread(() -> {
-            synchronized (object) {
-                try {
-                    System.out.println("t1 lock ing 1");//轻量级锁00
-                    System.out.println(ClassLayout.parseInstance(object).toPrintable());
-                    Thread.sleep(5000);
-                    System.out.println("t1 lock ing 2");//轻量级锁00
-                    System.out.println(ClassLayout.parseInstance(object).toPrintable());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-
-
-        t1.start();
-
-        Thread.sleep(3000);
-        sysn();
-        System.out.println("after lock");//重量级锁10
-        System.out.println(ClassLayout.parseInstance(object).toPrintable());
-
-
-        System.gc();
-        System.out.println("after gc");//无锁01  age + 1
-        System.out.println(ClassLayout.parseInstance(object).toPrintable());
-        System.gc();
-        System.out.println("after gc");//无锁01  age + 1
-        System.out.println(ClassLayout.parseInstance(object).toPrintable());
-        System.gc();
-        System.out.println("after gc");//无锁01  age + 1
-        System.out.println(ClassLayout.parseInstance(object).toPrintable());
-        System.gc();
-        System.out.println("after gc");//无锁01  age + 1
-        System.out.println(ClassLayout.parseInstance(object).toPrintable());
-    }
+//    public static void main(String[] args) throws InterruptedException {
+//        object = new Object();
+//        System.out.println("befor lock");//无锁01
+//        System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//
+//
+//        Thread t1 = new Thread(() -> {
+//            synchronized (object) {
+//                try {
+//                    System.out.println("t1 lock ing 1");//轻量级锁00
+//                    System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//                    Thread.sleep(5000);
+//                    System.out.println("t1 lock ing 2");//轻量级锁00
+//                    System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//
+//
+//        t1.start();
+//
+//        Thread.sleep(3000);
+//        sysn();
+//        System.out.println("after lock");//重量级锁10
+//        System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//
+//
+//        System.gc();
+//        System.out.println("after gc");//无锁01  age + 1
+//        System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//        System.gc();
+//        System.out.println("after gc");//无锁01  age + 1
+//        System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//        System.gc();
+//        System.out.println("after gc");//无锁01  age + 1
+//        System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//        System.gc();
+//        System.out.println("after gc");//无锁01  age + 1
+//        System.out.println(ClassLayout.parseInstance(object).toPrintable());
+//    }
 
     public static void sysn(){
         synchronized (object){
             System.out.println("lock ing thread:"+Thread.currentThread().getName());//重量级锁10
             System.out.println(ClassLayout.parseInstance(object).toPrintable());
         }
+    }
+
+    public static void main(String[] args) {
+        SObject object = new SObject();
+        System.out.println(ClassLayout.parseInstance(object).toPrintable());
     }
 }
 
@@ -200,7 +208,7 @@ class SObject{
     private long aLong;
     /**8bytes*/
     private double aDouble;
-    /**4bytes*/
+    /**开启指针压缩4bytes  不开启指针压缩8bytes*/
     private Object oSize;
 
 }
