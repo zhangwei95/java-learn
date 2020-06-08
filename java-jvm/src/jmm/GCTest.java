@@ -1,9 +1,9 @@
 package jmm;
 
-import java.util.HashMap;
+
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * test GC
@@ -15,15 +15,16 @@ import java.util.Map;
  * [Full GC (Allocation Failure) [PSYoungGen: 14336K------->14336K(17920K)] [ParOldGen: 40580K->40555K(40960K)] 54916K------->54892K(58880K), [Metaspace: 3467K->3467K(1056768K)], 0.0105787 secs] [Times: user=0.11 sys=0.03, real=0.01 secs]
  */
 public class GCTest {
-    private static final int M=1024*1024;
+    private static final int M = 1024 * 1024;
+
     public static void main(String[] args) {
 
-        System.out.println("maxMemory:" + ( Runtime.getRuntime().maxMemory()/M) + "M");
-        System.out.println("freeMemory:" + (Runtime.getRuntime().freeMemory()/M) + "M");
-        System.out.println("totalMemory:" + (Runtime.getRuntime().totalMemory()/M) + "M");
-        List linklist=new LinkedList<>();
+        System.out.println("maxMemory:" + (Runtime.getRuntime().maxMemory() / M) + "M");
+        System.out.println("freeMemory:" + (Runtime.getRuntime().freeMemory() / M) + "M");
+        System.out.println("totalMemory:" + (Runtime.getRuntime().totalMemory() / M) + "M");
+        List linklist = new LinkedList<>();
         System.gc();
-        for(;;){
+        for (; ; ) {
             linklist.add(new byte[M]);
         }
 
