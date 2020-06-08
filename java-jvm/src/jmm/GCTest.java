@@ -1,3 +1,5 @@
+package jmm;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,9 +9,9 @@ import java.util.Map;
  * test GC
  * -Xms60m -Xmx60m -XX:+PrintCommandLineFlags -XX:+PrintGCDetails
  * vmoption
- * gc type    gcåŽŸå›          å¹´ä»£         å›žæ”¶å‰å¹´è½»ä»£ç©ºé—´  å›žæ”¶åŽå¹´è½»ä»£ç©ºé—´ å›žæ”¶å‰å †å ç”¨ç©ºé—´   å›žæ”¶åŽå †å ç”¨ç©ºé—´  å›žæ”¶æ—¶é•¿         Linux è€—æ—¶   ç”¨æˆ·æ€  å†…æ ¸æ€  æ€»
+ * gc type    gcÔ­Òò         Äê´ú         »ØÊÕÇ°ÄêÇá´ú¿Õ¼ä  »ØÊÕºóÄêÇá´ú¿Õ¼ä »ØÊÕÇ°¶ÑÕ¼ÓÃ¿Õ¼ä   »ØÊÕºó¶ÑÕ¼ÓÃ¿Õ¼ä  »ØÊÕÊ±³¤         Linux ºÄÊ±   ÓÃ»§Ì¬  ÄÚºËÌ¬  ×Ü
  * [GC (Allocation Failure) [PSYoungGen: 17189K----------->2552K(17920K)] 28773K------------>28512K(58880K), 0.0024852 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
- * gc type    gcåŽŸå›               å¹´ä»£     å›žæ”¶å‰å¹´è½»ä»£ç©ºé—´  å›žæ”¶åŽå¹´è½»ä»£ç©ºé—´  å›žæ”¶å‰è€å¹´ä»£ç©ºé—´  å›žæ”¶åŽè€å¹´ä»£ç©ºé—´   GCå‰heap7807K  GCåŽ heap7549K   metaspace   å›žæ”¶æƒ…å†µ
+ * gc type    gcÔ­Òò              Äê´ú     »ØÊÕÇ°ÄêÇá´ú¿Õ¼ä  »ØÊÕºóÄêÇá´ú¿Õ¼ä  »ØÊÕÇ°ÀÏÄê´ú¿Õ¼ä  »ØÊÕºóÀÏÄê´ú¿Õ¼ä   GCÇ°heap7807K  GCºó heap7549K   metaspace   »ØÊÕÇé¿ö
  * [Full GC (Allocation Failure) [PSYoungGen: 14336K------->14336K(17920K)] [ParOldGen: 40580K->40555K(40960K)] 54916K------->54892K(58880K), [Metaspace: 3467K->3467K(1056768K)], 0.0105787 secs] [Times: user=0.11 sys=0.03, real=0.01 secs]
  */
 public class GCTest {
@@ -20,9 +22,11 @@ public class GCTest {
         System.out.println("freeMemory:" + (Runtime.getRuntime().freeMemory()/M) + "M");
         System.out.println("totalMemory:" + (Runtime.getRuntime().totalMemory()/M) + "M");
         List linklist=new LinkedList<>();
+        System.gc();
         for(;;){
             linklist.add(new byte[M]);
         }
+
 
     }
 }
