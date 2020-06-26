@@ -1,7 +1,7 @@
 package heap;
 
 /**
- * 大根堆
+ * 小根堆
  *
  * @author zhangwei
  * @Describe 类描述
