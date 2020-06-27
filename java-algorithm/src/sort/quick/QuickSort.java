@@ -1,5 +1,7 @@
 package sort.quick;
 
+import sort.SortMethod;
+
 /**
  * 快排
  *
@@ -158,7 +160,7 @@ public class QuickSort {
         int maxValue = 100;
         boolean succeed = true;
         for (int i = 0;i<testTime;i++){
-            int[] arr1 = generateRandomArray(maxSize, maxValue);
+            int[] arr1 = SortMethod.generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
             int[] arr3 = copyArray(arr1);
             quickSort1(arr1);
