@@ -1,5 +1,7 @@
 package sort.merge;
 
+import sort.SortMethod;
+
 /**
  *
  * 逆序对个数问题
@@ -98,7 +100,7 @@ public class ReverseSequenceCouple {
 
 
     public static void main(String[] args) {
-        int[] test = generateRandomArray(10, 100);
+        int[] test = SortMethod.generateRandomArray(10, 100);
 //        test = new int []{3 ,6, 3, 0, 3, 3, 3, 1};
         for (int i = 0; i < test.length; i++) {
             System.out.print(test[i] + ",");
@@ -114,11 +116,5 @@ public class ReverseSequenceCouple {
     }
 
 
-    public static int[] generateRandomArray(int maxSize, int maxValue) {
-        int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) ((maxSize + 1) * Math.random());
-        }
-        return arr;
-    }
+
 }

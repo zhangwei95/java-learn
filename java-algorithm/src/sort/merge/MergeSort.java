@@ -1,5 +1,7 @@
 package sort.merge;
 
+import sort.SortMethod;
+
 import java.util.logging.Logger;
 
 /**
@@ -112,7 +114,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] test = generateRandomArray(100, 100);
+        int[] test = SortMethod.generateRandomArray(100, 100);
         for (int i = 0; i < test.length; i++) {
             System.out.print(test[i] + " ");
         }
@@ -123,12 +125,4 @@ public class MergeSort {
         }
     }
 
-
-    public static int[] generateRandomArray(int maxSize, int maxValue) {
-        int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) ((maxSize + 1) * Math.random());
-        }
-        return arr;
-    }
 }
