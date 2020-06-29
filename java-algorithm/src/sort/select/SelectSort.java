@@ -26,8 +26,29 @@ public class SelectSort {
                 nums[i] = nums[k];
                 nums[k] = temp;
             }
-            System.out.print("选择第" + i + "趟排序：");
-            SortMethod.printArray(nums);
+//            System.out.print("选择第" + i + "趟排序：");
+//            SortMethod.printArray(nums);
         }
+//        SortMethod.printArray(nums);
+    }
+
+    public static void main(String[] args) {
+        int testTime = 500000;
+        int maxSize = 100;
+        int maxValue = 100000;
+        boolean succeed = true;
+        for (int i = 0; i < testTime; i++) {
+            int[] arr1 = SortMethod.generateRandomArray(maxSize, maxValue);
+            int[] arr2 = SortMethod.copyArray(arr1);
+            selectSort(arr1);
+            SortMethod.comparator(arr2);
+            if (!SortMethod.isEqual(arr1, arr2)) {
+                succeed = false;
+                SortMethod.printArray(arr1);
+                SortMethod.printArray(arr2);
+                break;
+            }
+        }
+        System.out.println(succeed ? "Nice!" : "Fucking fucked!");
     }
 }
