@@ -33,9 +33,9 @@ public class T06_MaxTreeWidth {
 
         // 当前层
         int currentLevel = 1;
-
+        // 当前层节点数
         int currentNodes = 0;
-
+        //最大节点数
         int maxWidth = 0;
 
         while (!queue.isEmpty()){
@@ -59,6 +59,7 @@ public class T06_MaxTreeWidth {
             }
 
         }
+        // 最后一层与倒数第二层PK 大小
         maxWidth = Math.max(maxWidth,currentNodes);
         return maxWidth;
 
