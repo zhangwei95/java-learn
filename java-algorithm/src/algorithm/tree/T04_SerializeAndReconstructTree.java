@@ -192,7 +192,7 @@ public class T04_SerializeAndReconstructTree {
         int testTimes = 100;
         System.out.println("test begin");
         for (int i = 0; i < testTimes; i++) {
-            Node head = T00_GenerateTree.generateRandomBST(maxLevel, maxValue);
+            Node head = T00_GenerateTree.generateRandomTree(maxLevel, maxValue);
             if (head == null){
                 continue;
             }
