@@ -81,7 +81,7 @@ public class T02_IsFull {
         int maxValue = 100;
         int testTimes = 1000000;
         for (int i = 0; i < testTimes; i++) {
-            Node head = T00_GenerateTree.generateRandomBST(maxLevel, maxValue);
+            Node head = T00_GenerateTree.generateRandomTree(maxLevel, maxValue);
             if (isFull(head) != isFull2(head)) {
                 System.out.println("oops");
                 T05_PrintBinaryTree.printTree(head);
