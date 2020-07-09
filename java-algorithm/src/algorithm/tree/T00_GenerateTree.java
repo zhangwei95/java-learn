@@ -9,13 +9,13 @@ package algorithm.tree;
 public class T00_GenerateTree {
 
     // for test
-    public static Node generateRandomBST(int maxLevel, int maxValue) {
+    public static Node generateRandomTree(int maxLevel, int maxValue) {
         return generate(1, maxLevel, maxValue);
     }
 
     // for test
     public static Node generate(int level, int maxLevel, int maxValue) {
-        if (level > maxLevel || Math.random() < 0.5) {
+        if (level > maxLevel || Math.random() < 0.3) {
             return null;
         }
         Node head = new Node((int) (Math.random() * maxValue));
