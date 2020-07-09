@@ -113,6 +113,12 @@ public class T06_IsCBT {
                 T05_PrintBinaryTree.printTree(head);
             }
         }
+
+        Node head = new Node(10);
+        head.left = new Node(5);
+        head.right = new Node(15);
+        System.out.println(isCBT2(head));
+
     }
 
 
