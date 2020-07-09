@@ -90,34 +90,33 @@ public class T04_MaxSubBSTSize {
         if (head == null) {
             return null;
         }
-
         boolean isBST = true;
-        int maxSubBSTSize = 0;
-        int max = 0;
-        int min = 0;
+        int maxSubBSTSize = 1;
 
+        int min = head.value;
+        int max = head.value;
         Info leftProcess = process(head.left);
         Info rightProcess = process(head.right);
+
+        if(leftProcess != null) {
+            min = Math.min(min, leftProcess.min);
+            max = Math.max(max, leftProcess.max);
+        }
+
+        if(rightProcess != null) {
+            min = Math.min(min, rightProcess.min);
+            max = Math.max(max, rightProcess.max);
+        }
 
         if (leftProcess != null && rightProcess != null) {
             isBST = leftProcess.isBST && rightProcess.isBST && rightProcess.min >= head.value && leftProcess.max <= head.value;
             maxSubBSTSize = isBST ? leftProcess.maxSubBSTSize + rightProcess.maxSubBSTSize + 1 : Math.max(leftProcess.maxSubBSTSize, rightProcess.maxSubBSTSize);
-            max = isBST ? rightProcess.max : 0;
-            min = isBST ? leftProcess.min : 0;
         } else if (leftProcess != null) {
             isBST = leftProcess.isBST && leftProcess.max <= head.value;
             maxSubBSTSize = isBST ? leftProcess.maxSubBSTSize + 1 : leftProcess.maxSubBSTSize;
-            max = isBST ? head.value : 0;
-            min = isBST ? leftProcess.min : 0;
         } else if (rightProcess != null) {
             isBST = rightProcess.isBST && rightProcess.min >= head.value;
             maxSubBSTSize = isBST ? rightProcess.maxSubBSTSize + 1 : rightProcess.maxSubBSTSize;
-            max = isBST ? rightProcess.max : 0;
-            min = isBST ? head.value : 0;
-        } else {
-            maxSubBSTSize = 1;
-            max = head.value;
-            min = head.value;
         }
 
         return new Info(isBST, maxSubBSTSize, max, min);
