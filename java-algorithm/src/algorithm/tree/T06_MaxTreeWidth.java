@@ -114,7 +114,7 @@ public class T06_MaxTreeWidth {
 
     public static void main(String[] args) {
         for (int i = 0; i< 100; i++){
-            Node node = T00_GenerateTree.generateRandomBST(8, 10000);
+            Node node = T00_GenerateTree.generateRandomTree(8, 10000);
             int maxWidthWithOutMap = getMaxWidthWithOutMap(node);
             int maxTreeWidthWithMap = getMaxTreeWidthWithMap(node);
             if (maxTreeWidthWithMap != maxWidthWithOutMap) {
