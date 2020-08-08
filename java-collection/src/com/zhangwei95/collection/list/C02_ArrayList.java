@@ -10,7 +10,13 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * @Description: 描述
+ * @Description: ArrayList
+ * 数据结构 ：数组
+ * 顺序分配  内存连续
+ * 长度固定
+ * 查询快  新增 删除 慢
+ *
+ * 扩容 System.copyArray  elementData
  * @Author: zhangwei
  * @Date: 2020/7/21 19:53
  */
@@ -90,7 +96,7 @@ public class C02_ArrayList {
     }
 
     /**
-     * iterator.remove(); 实际上也是调用 ArrayList.remove
+     * 多线程下操作
      * expectedModCount 线程私有  modCount修改后 expectedModCount不同步
      */
     @Test
